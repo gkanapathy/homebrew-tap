@@ -5,11 +5,10 @@ class Dotfiles < Formula
   sha256 "be5ed481d1af28050d5a97dc752e5a2667f14ef71717286019d572792689b6c2"
   license "MIT"
 
-  depends_on "fish"
-  depends_on "neovim"
-  depends_on "ripgrep"
-  depends_on "starship"
-  depends_on "uv"
+  # Required tools (fish, neovim, ripgrep, starship, uv) are intentionally NOT
+  # declared as `depends_on` — brew can't detect parallel installs (cargo, mise,
+  # system package manager, manual builds), so declaring them would force a
+  # second copy under the brew prefix. Listed in caveats instead.
 
   def install
     pkgshare.install Dir["*"]
@@ -24,6 +23,14 @@ class Dotfiles < Formula
 
   def caveats
     <<~EOS
+      Required runtime tools (install however you prefer — brew, cargo,
+      mise, system package manager, etc.):
+        - fish
+        - neovim
+        - ripgrep
+        - starship
+        - uv
+
       To symlink the dotfiles into your home directory, run:
         dotfiles-install
 
