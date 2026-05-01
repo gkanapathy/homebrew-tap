@@ -1,15 +1,16 @@
 class Dotfiles < Formula
-  desc "Gerald Kanapathy's personal dotfiles (fish, neovim, ripgrep, starship)"
+  desc "Gerald Kanapathy's personal dotfiles (bat, fish, neovim, ripgrep, starship)"
   homepage "https://github.com/gkanapathy/dotfiles"
-  url "https://github.com/gkanapathy/dotfiles/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "be5ed481d1af28050d5a97dc752e5a2667f14ef71717286019d572792689b6c2"
+  url "https://github.com/gkanapathy/dotfiles/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "e367e1e48ef8169191eca7fac7d793fcdb6deab02e4c7772a671e5185c9e0d04"
   license "MIT"
 
+  depends_on "bat"
   depends_on "fish"
   depends_on "neovim"
   depends_on "ripgrep"
   depends_on "starship"
-  depends_on "uv"
+  depends_on "yq"
 
   def install
     pkgshare.install Dir["*"]
@@ -34,8 +35,8 @@ class Dotfiles < Formula
   end
 
   test do
-    assert_predicate (opt_pkgshare/"install.sh"), :exist?
-    assert_predicate (opt_pkgshare/"fish/config.fish"), :exist?
-    assert_predicate (opt_pkgshare/"starship/build_preset.py"), :exist?
+    assert_path_exists opt_pkgshare/"install.sh"
+    assert_path_exists opt_pkgshare/"fish/config.fish"
+    assert_path_exists opt_pkgshare/"starship/build"
   end
 end

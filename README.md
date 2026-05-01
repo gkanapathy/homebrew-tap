@@ -13,4 +13,4 @@ brew install gkanapathy/tap/<formula>
 
 | Formula | Description |
 |---------|-------------|
-| [`dotfiles`](Formula/dotfiles.rb) | Personal dotfiles (fish, neovim, ripgrep, starship). Installs the deps; run `dotfiles-install` after install to symlink the configs into `$HOME`. Source: [gkanapathy/dotfiles](https://github.com/gkanapathy/dotfiles). |
+| [`dotfiles`](Formula/dotfiles.rb) | Personal dotfiles (bat, fish, neovim, ripgrep, starship). Installs the deps; run `dotfiles-install` after install to symlink the configs into `$HOME`. Source: [gkanapathy/dotfiles](https://github.com/gkanapathy/dotfiles). |
